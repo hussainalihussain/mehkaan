@@ -30,4 +30,16 @@ class ModelsMigrationsTest extends TestCase
 
         $this->assertNotEmpty($products_migration);
     }
+
+    public function test_customer_model_exists(): void
+    {
+        $this->assertTrue(class_exists('App\Models\Customer'));
+    }
+
+    public function test_customers_migration_exists(): void
+    {
+        $customers_migration = $this->getMigration('create_customers_table.php');
+
+        $this->assertNotEmpty($customers_migration);
+    }
 }
