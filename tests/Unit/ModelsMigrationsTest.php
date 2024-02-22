@@ -42,4 +42,16 @@ class ModelsMigrationsTest extends TestCase
 
         $this->assertNotEmpty($customers_migration);
     }
+
+    public function test_expense_model_exists(): void
+    {
+        $this->assertTrue(class_exists('App\Models\Expense'));
+    }
+
+    public function test_expenses_migration_exists(): void
+    {
+        $expenses_migration = $this->getMigration('create_expenses_table.php');
+
+        $this->assertNotEmpty($expenses_migration);
+    }
 }
