@@ -13,6 +13,14 @@ return new class extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->enum('type', ['bar soap', 'liquid soap'])->default('bar soap');
+            $table->double('weight');
+            $table->enum('weight_unit', ['g', 'kg'])->default('g');
+            $table->double('cost');
+            $table->double('price');
+            $table->double('selling_min_price');
+            $table->double('selling_max_price');
             $table->timestamps();
         });
     }
