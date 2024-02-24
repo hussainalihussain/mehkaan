@@ -13,6 +13,13 @@ return new class extends Migration
     {
         Schema::create('batches', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('added_by_user_id')->constrained('users');
+            $table->string('name');
+            $table->date('date');
+            $table->time('time_consume');
+            $table->dateTime('start_at');
+            $table->dateTime('end_at');
+
             $table->timestamps();
         });
     }
