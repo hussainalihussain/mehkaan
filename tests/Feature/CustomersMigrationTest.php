@@ -13,13 +13,6 @@ class CustomersMigrationTest extends TestCase
     protected static $table = 'customers';
     protected static $needTable = true;
 
-    protected function setUp(): void
-    {
-        parent::setUp();
-
-        Artisan::call('migrate:fresh');
-    }
-
     public function test_customers_migration_exists(): void
     {
         $this->assertTrue(Schema::hasTable(static::$table));

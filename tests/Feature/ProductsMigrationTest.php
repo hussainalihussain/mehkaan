@@ -13,13 +13,6 @@ class ProductsMigrationTest extends TestCase
     protected static $table = 'products';
     protected static $needTable = true;
 
-    protected function setUp(): void
-    {
-        parent::setUp();
-
-        Artisan::call('migrate:fresh');
-    }
-
     public function test_products_table_exists(): void
     {
         $this->assertTrue(Schema::hasTable(static::$table));
