@@ -11,6 +11,7 @@ abstract class TestCase extends BaseTestCase
     use CreatesApplication;
 
     protected static $table = '';
+    protected static $needTable = false;
 
     protected function setUp(): void
     {
@@ -18,7 +19,7 @@ abstract class TestCase extends BaseTestCase
 
         $this->withoutVite();
 
-        if(!static::$table) {
+        if(static::$needTable && !static::$table) {
             throw new Exception('Table name not set');
         }
     }

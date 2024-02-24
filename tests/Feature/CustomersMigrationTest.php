@@ -11,6 +11,7 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 class CustomersMigrationTest extends TestCase
 {
     protected static $table = 'customers';
+    protected static $needTable = true;
 
     protected function setUp(): void
     {
