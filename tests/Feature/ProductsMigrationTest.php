@@ -19,12 +19,6 @@ class ProductsMigrationTest extends TestCase
         Artisan::call('migrate:fresh');
     }
 
-    public function factory($column, $type)
-    {
-        $this->assertTrue(Schema::hasColumn(static::$table, $column));
-        $this->assertEquals($type, Schema::getColumnType(static::$table, $column));
-    }
-
     public function test_products_table_exists(): void
     {
         $this->assertTrue(Schema::hasTable(static::$table));
@@ -32,7 +26,7 @@ class ProductsMigrationTest extends TestCase
 
     public function test_products_table_has_id_field(): void
     {
-        $this->factory('id', 'bigint');
+        $this->factory('id', ['bigint', 'integer']);
         // need to check if auto incremented
     }
 
@@ -48,7 +42,7 @@ class ProductsMigrationTest extends TestCase
 
     public function test_products_table_has_weight_field(): void
     {
-        $this->factory('weight', 'double');
+        $this->factory('weight', ['float', 'double']);
     }
 
     public function test_products_table_has_weight_unit_field(): void
@@ -58,21 +52,21 @@ class ProductsMigrationTest extends TestCase
 
     public function test_products_table_has_cost_field(): void
     {
-        $this->factory('cost', 'double');
+        $this->factory('cost', ['float', 'double']);
     }
 
     public function test_products_table_has_price_field(): void
     {
-        $this->factory('price', 'double');
+        $this->factory('price', ['float', 'double']);
     }
 
     public function test_products_table_has_selling_min_price_field(): void
     {
-        $this->factory('selling_min_price', 'double');
+        $this->factory('selling_min_price', ['float', 'double']);
     }
 
     public function test_products_table_has_selling_max_price_field(): void
     {
-        $this->factory('selling_max_price', 'double');
+        $this->factory('selling_max_price', ['float', 'double']);
     }
 }

@@ -19,15 +19,15 @@ class CustomersMigrationTest extends TestCase
         Artisan::call('migrate:fresh');
     }
 
-    public function factory($column, $type)
-    {
-        $this->assertTrue(Schema::hasColumn(static::$table, $column));
-        $this->assertEquals($type, Schema::getColumnType(static::$table, $column));
-    }
-
     public function test_customers_migration_exists(): void
     {
         $this->assertTrue(Schema::hasTable(static::$table));
+    }
+
+    public function test_products_table_has_id_field(): void
+    {
+        $this->factory('id', ['bigint', 'integer']);
+        // need to check if auto incremented
     }
 
     public function test_name_field_is_varchar_in_customers_migration(): void
