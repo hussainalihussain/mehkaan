@@ -4,13 +4,12 @@ namespace Tests\Feature;
 
 use Tests\TestCase;
 use Illuminate\Support\Facades\Schema;
-use Illuminate\Support\Facades\Artisan;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
-class CustomersMigrationTest extends TestCase
+class SuppliersMigrationTest extends TestCase
 {
-    protected static $table = 'customers';
+    protected static $table = 'suppliers';
     protected static $needTable = true;
 
     public function test_customers_migration_exists(): void
@@ -21,31 +20,30 @@ class CustomersMigrationTest extends TestCase
     public function test_products_table_has_id_field(): void
     {
         $this->factory('id', ['bigint', 'integer']);
-        // need to check if auto incremented
     }
 
-    public function test_name_field_is_varchar_in_customers_migration(): void
+    public function test_products_table_has_name_field(): void
     {
         $this->factory('name', 'varchar');
     }
 
-    public function test_type_field_is_enum_in_customers_migration(): void
-    {
-        $this->factory('type', 'enum');
-    }
-
-    public function test_address_field_is_varchar_in_customers_migration(): void
+    public function test_products_table_has_address_field(): void
     {
         $this->factory('address', 'varchar');
     }
 
-    public function test_phone_field_is_varchar_in_customers_migration(): void
+    public function test_products_table_has_phone_field(): void
     {
         $this->factory('phone', 'varchar');
     }
 
-    public function test_email_field_is_varchar_in_customers_migration(): void
+    public function test_products_table_has_email_field(): void
     {
         $this->factory('email', 'varchar');
+    }
+
+    public function test_products_table_has_note_field(): void
+    {
+        $this->factory('note', 'text');
     }
 }

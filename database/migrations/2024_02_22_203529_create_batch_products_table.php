@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('batch_products', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('product_id')->constrained();
+            $table->foreignId('batch_product_id')->constrained();
             $table->timestamps();
         });
     }

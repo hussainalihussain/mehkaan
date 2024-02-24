@@ -4,6 +4,7 @@ namespace Tests;
 
 use Exception;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Foundation\Testing\TestCase as BaseTestCase;
 
 abstract class TestCase extends BaseTestCase
@@ -22,6 +23,8 @@ abstract class TestCase extends BaseTestCase
         if(static::$needTable && !static::$table) {
             throw new Exception('Table name not set');
         }
+
+        Artisan::call('migrate:fresh');
     }
 
     protected function factory($column, $type)
