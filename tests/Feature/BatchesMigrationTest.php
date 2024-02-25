@@ -17,37 +17,37 @@ class BatchesMigrationTest extends TestCase
         $this->assertTrue(Schema::hasTable(static::$table));
     }
 
-    public function test_products_table_has_id_field(): void
+    public function test_batches_table_has_id_field(): void
     {
         $this->factory('id', ['bigint', 'integer']);
     }
 
-    public function test_products_table_has_added_by_user_id_field(): void
+    public function test_batches_table_has_added_by_user_id_field(): void
     {
         $this->factory('added_by_user_id', ['bigint', 'integer']);
     }
 
-    public function test_products_table_has_name_field(): void
+    public function test_batches_table_has_name_field(): void
     {
         $this->factory('name', 'varchar');
     }
 
-    public function test_products_table_has_date_field(): void
+    public function test_batches_table_has_date_field(): void
     {
         $this->factory('date', 'date');
     }
 
-    public function test_products_table_has_time_consume_field(): void
+    public function test_batches_table_has_time_consumed_field(): void
     {
-        $this->factory('time_consume', 'time');
+        $this->factory('time_consumed', ['time']);
     }
 
-    public function test_products_table_has_start_at_field(): void
+    public function test_batches_table_has_start_at_field(): void
     {
         $this->factory('start_at', ['datetime', 'timestamp']);
     }
 
-    public function test_products_table_has_end_at_field(): void
+    public function test_batches_table_has_end_at_field(): void
     {
         $this->factory('end_at', ['datetime', 'timestamp']);
     }

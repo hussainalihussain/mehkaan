@@ -21,7 +21,16 @@ class ProductsMigrationTest extends TestCase
     public function test_products_table_has_id_field(): void
     {
         $this->factory('id', ['bigint', 'integer']);
-        // need to check if auto incremented
+    }
+
+    public function test_products_table_has_batch_id_field(): void
+    {
+        $this->factory('batch_id', ['bigint', 'integer']);
+    }
+
+    public function test_products_table_has_added_by_user_id_field(): void
+    {
+        $this->factory('added_by_user_id', ['bigint', 'integer']);
     }
 
     public function test_products_table_has_name_field(): void
