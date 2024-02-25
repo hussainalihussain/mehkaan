@@ -14,14 +14,12 @@ return new class extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
             $table->foreignId('customer_id')->constrained();
-            $table->foreignId('product_id')->constrained();
+            $table->foreignId('sold_by_employee_id')->constrained('employees');
             $table->enum('status', ['pending', 'processing', 'completed', 'canceled'])->default('pending');
             $table->date('date')->default(now());
-            $table->integer('quantity');
-            $table->double('unit_price');
-            $table->double('total_price');
+            $table->double('total');
             $table->double('discount')->default(0);
-            $table->double('per_item_discount')->default(0);
+            $table->string('currency')->nullable();
             $table->timestamps();
         });
     }

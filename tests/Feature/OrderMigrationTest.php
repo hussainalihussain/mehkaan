@@ -27,9 +27,9 @@ class OrderMigrationTest extends TestCase
         $this->factory('customer_id', ['bigint', 'integer']);
     }
 
-    public function test_orders_table_has_product_id_field(): void
+    public function test_orders_table_has_sold_by_employee_id_field(): void
     {
-        $this->factory('product_id', ['bigint', 'integer']);
+        $this->factory('sold_by_employee_id', ['bigint', 'integer']);
     }
 
     public function test_orders_table_has_status_field(): void
@@ -42,19 +42,9 @@ class OrderMigrationTest extends TestCase
         $this->factory('date', ['date', 'timestamp', 'datetime']);
     }
 
-    public function test_orders_table_has_quantity_field(): void
+    public function test_orders_table_has_total_field(): void
     {
-        $this->factory('quantity', ['bigint', 'integer']);
-    }
-
-    public function test_orders_table_has_unit_price_field(): void
-    {
-        $this->factory('unit_price', ['float', 'double']);
-    }
-
-    public function test_orders_table_has_total_price_field(): void
-    {
-        $this->factory('total_price', ['float', 'double']);
+        $this->factory('total', ['float', 'double']);
     }
 
     public function test_orders_table_has_discount_field(): void
@@ -62,8 +52,8 @@ class OrderMigrationTest extends TestCase
         $this->factory('discount', ['float', 'double']);
     }
 
-    public function test_orders_table_has_per_item_discount_field(): void
+    public function test_orders_table_has_currency_field(): void
     {
-        $this->factory('per_item_discount', ['float', 'double']);
+        $this->factory('currency', ['varchar']);
     }
 }
