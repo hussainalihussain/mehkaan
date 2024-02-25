@@ -96,9 +96,9 @@ class ModelsMigrationsTest extends TestCase
         $this->assertTrue(class_exists('App\Models\MaterialProduct'));
     }
 
-    public function test_material_products_migration_exists(): void
+    public function test_material_product_migration_exists(): void
     {
-        $material_products_migration = $this->getMigration('create_material_products_table.php');
+        $material_products_migration = $this->getMigration('create_material_product_table.php');
 
         $this->assertNotEmpty($material_products_migration);
     }
