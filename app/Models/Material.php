@@ -8,4 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 class Material extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'added_by_user_id',
+        'supplier_id',
+        'name',
+        'type',
+        'date',
+        'cost',
+        'weight',
+        'quantity',
+    ];
 }
