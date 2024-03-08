@@ -91,26 +91,14 @@ class ModelsMigrationsTest extends TestCase
         $this->assertNotEmpty($materials_migration);
     }
 
-    public function test_batch_product_model_exists(): void
-    {
-        $this->assertTrue(class_exists('App\Models\BatchProduct'));
-    }
-
-    public function test_batch_products_migration_exists(): void
-    {
-        $product_batch_products_migration = $this->getMigration('create_batch_products_table.php');
-
-        $this->assertNotEmpty($product_batch_products_migration);
-    }
-
     public function test_material_product_model_exists(): void
     {
         $this->assertTrue(class_exists('App\Models\MaterialProduct'));
     }
 
-    public function test_material_products_migration_exists(): void
+    public function test_material_product_migration_exists(): void
     {
-        $material_products_migration = $this->getMigration('create_material_products_table.php');
+        $material_products_migration = $this->getMigration('create_material_product_table.php');
 
         $this->assertNotEmpty($material_products_migration);
     }

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,5 +15,44 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('dashboard.index');
 });
+Route::get('/users', function () {
+    return view('dashboard.users.index');
+});
+
+Route::get('/settings', function () {
+    return view('dashboard.settings.index');
+});
+
+Route::get('/sign-in', function () {
+    return view('login');
+});
+
+Route::get('/sign-up', function () {
+    return view('sign-up');
+});
+
+Route::get('/forgot-password-2', function () {
+    return view('forgot-password');
+});
+
+Route::get('/reset-password-2', function () {
+    return view('reset-password');
+});
+
+Route::get('/profile-lock-2', function () {
+    return view('profile-lock');
+});
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+require __DIR__.'/auth.php';

@@ -13,6 +13,14 @@ return new class extends Migration
     {
         Schema::create('materials', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('added_by_user_id')->constrained('users');
+            $table->foreignId('supplier_id')->constrained('suppliers');
+            $table->string('name');
+            $table->string('type');
+            $table->date('date');
+            $table->float('cost');
+            $table->float('weight');
+            $table->float('quantity')->default(1);
             $table->timestamps();
         });
     }
