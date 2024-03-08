@@ -6,8 +6,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {{-- icon to show on windows tab with title --}}
-    <link rel="icon" type="image/x-icon" href="{{ asset('dashboard/src/images/logo/logo.png') }}">
-    <link rel="icon" type="image/x-icon" href="{{ asset('dashboard/src/images/logo/logo-white.png') }}" media="(prefers-color-scheme: dark)">
+    <link rel="icon" type="image/x-icon" href="{{ asset('backend/src/images/logo/logo.png') }}">
+    <link rel="icon" type="image/x-icon" href="{{ asset('backend/src/images/logo/logo-white.png') }}" media="(prefers-color-scheme: dark)">
 
     <title>Backend Dashboard - Mehkaan</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
@@ -30,8 +30,8 @@
         </div>
     </div>
 
-    <script async defer src="{{ asset('dashboard/src/js/buttons.js') }}"></script>
-    <script src="{{ asset('dashboard/src/js/app.bundle.js') }}"></script>
+    <script async defer src="{{ asset('backend/src/js/buttons.js') }}"></script>
+    <script src="{{ asset('backend/src/js/app.bundle.js') }}"></script>
 </body>
 
 </html>
