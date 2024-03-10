@@ -5,7 +5,7 @@
     <p class="text-base font-normal text-gray-500 dark:text-gray-400">
         Don't fret! Just type in your email and we will send you a code to reset your password!
     </p>
-    <x-form method="POST" action="#">
+    <x-form method="POST" action="#" class="mt-8 space-y-6">
         <x-input
             type="email"
             name="email"

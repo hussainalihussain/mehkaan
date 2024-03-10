@@ -1,11 +1,16 @@
 @props([
     'enctype' => '',
-    'method' => 'POST'])
+    'method' => 'POST',
+    'action' => '#',
+    'class'  => '',
+])
 
 <form
-    {{ $attributes->merge(['class' => 'mt-8 space-y-6']) }}
     @if($enctype) enctype="{{ $enctype }}" @endif
-    method="{{ strtoupper($method) }}">
+    action="{{ $action }}"
+    method="{{ strtoupper($method) }}"
+    class="{{ $class }}">
+
     @if(in_array(strtoupper($method), ['PUT', 'PATCH', 'DELETE']))
         @method($method)
     @endif

@@ -1,52 +1,73 @@
-<x-guest-layout>
-    <form method="POST" action="{{ route('register') }}">
-        @csrf
-
-        <!-- Name -->
-        <div>
-            <x-input-label for="name" :value="__('Name')" />
-            <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
-            <x-input-error :messages="$errors->get('name')" class="mt-2" />
+<x-auth-layout>
+    <h2 class="text-2xl font-bold text-gray-900 dark:text-white">
+        {{ __('Create a Free Account') }}
+    </h2>
+    <x-form
+        :action="route('register')"
+        method="POST"
+        class="mt-8 space-y-6">
+        <x-input
+            name="name"
+            id="name"
+            :title="__('Name')"
+            required
+            :error="$errors->get('name')"
+        />
+        <x-input
+            type="email"
+            name="email"
+            id="email"
+            :title="__('Email')"
+            required
+            :error="$errors->get('email')"
+        />
+        <x-input
+            type="password"
+            name="password"
+            id="password"
+            :title="__('Password')"
+            required
+            :error="$errors->get('password')"
+        />
+        <x-input
+            type="password"
+            name="password_confirmation"
+            id="password_confirmation"
+            :title="__('Confirm Password')"
+            required
+            :error="$errors->get('password_confirmation')"
+        />
+        <div class="flex items-start">
+            <div class="flex items-center h-5">
+                <x-checkbox
+                    id="terms_and_conditions"
+                    name="terms_and_conditions"
+                />
+            </div>
+            <div class="ml-3 text-sm">
+                <label for="terms_and_conditions" class="font-medium text-gray-900 dark:text-white">
+                    {{ __('I accept the') }}
+                    <a href="#" class="text-primary-700 hover:underline dark:text-primary-500">
+                        {{ __('Terms and Conditions') }}
+                    </a>
+                </label>
+            </div>
         </div>
-
-        <!-- Email Address -->
-        <div class="mt-4">
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="username" />
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
-        </div>
-
-        <!-- Password -->
-        <div class="mt-4">
-            <x-input-label for="password" :value="__('Password')" />
-
-            <x-text-input id="password" class="block mt-1 w-full"
-                            type="password"
-                            name="password"
-                            required autocomplete="new-password" />
-
-            <x-input-error :messages="$errors->get('password')" class="mt-2" />
-        </div>
-
-        <!-- Confirm Password -->
-        <div class="mt-4">
-            <x-input-label for="password_confirmation" :value="__('Confirm Password')" />
-
-            <x-text-input id="password_confirmation" class="block mt-1 w-full"
-                            type="password"
-                            name="password_confirmation" required autocomplete="new-password" />
-
-            <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
-        </div>
-
-        <div class="flex items-center justify-end mt-4">
-            <a class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800" href="{{ route('login') }}">
-                {{ __('Already registered?') }}
+        <x-button
+            type="submit"
+            bgColor="primary-700"
+            hoverBgColor="primary-800"
+            darkBgColor="primary-600"
+            darkHoverBgColor="primary-700">
+            {{ __('Create account') }}
+        </x-button>
+        <div class="text-sm font-medium text-gray-500 dark:text-gray-400">
+            {{ __('Already have an account?') }}
+            <a
+                href="{{  route('login') }}"
+                class="text-primary-700 hover:underline dark:text-primary-500">
+                {{ __('Login here') }}
             </a>
-
-            <x-primary-button class="ms-4">
-                {{ __('Register') }}
-            </x-primary-button>
         </div>
-    </form>
-</x-guest-layout>
+    </x-form>
+</x-auth-layout>
