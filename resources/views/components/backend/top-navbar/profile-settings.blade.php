@@ -13,18 +13,17 @@
             class="py-1"
             role="none">
             <x-backend.top-navbar.profile-setting-item
-                link="#"
+                href="#"
                 title="Dashboard"
             />
             <x-backend.top-navbar.profile-setting-item
-                title="Settings"
+                :href="route('profile.edit')"
+                title="Profile"
             />
             <x-backend.top-navbar.profile-setting-item
                 title="Earnings"
             />
-            <x-backend.top-navbar.profile-setting-item
-                title="Sign out"
-            />
+            <x-backend.top-navbar.profile-setting-item-logout />
         </ul>
     </div>
 </div>

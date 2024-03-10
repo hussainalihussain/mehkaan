@@ -16,7 +16,6 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-    return view('dashboard.index');
 });
 Route::get('/users', function () {
     return view('dashboard.users.index');
@@ -46,10 +45,12 @@ Route::get('/profile-lock-2', function () {
     return view('profile-lock');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-    return view('dashboard.index');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::middleware(['auth', 'verified'])
+    ->prefix('dashboard')
+    ->group(function () {
+        require(__DIR__ . '/dashboard.php');
+    }
+);
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

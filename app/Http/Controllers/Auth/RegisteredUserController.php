@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use Exception;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
@@ -42,7 +43,16 @@ class RegisteredUserController extends Controller
             'password' => Hash::make($request->password),
         ]);
 
-        event(new Registered($user));
+        try {
+            event(new Registered($user));
+        } catch (Exception $e) {
+            dump('Error: ' . $e->getMessage());
+            info(PHP_EOL);
+            logger()->error('#Error during registration (when calling Registered Event=> it send email....)');
+            logger()->error('File: ' . __FILE__ . ' Line: ' . __LINE__);
+            logger()->error($e->getMessage());
+            info(PHP_EOL);
+        }
 
         Auth::login($user);
 
