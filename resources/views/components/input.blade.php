@@ -7,12 +7,16 @@
     'name'          => '',
     'value'         => '',
     'error'         => '',
+    'requiredStar'  => false,
 ])
 
 <div>
     <label
         for="{{ $id }}"
-        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{{ $title }}</label>
+        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+        {{ $title }}
+        @if($required && $requiredStar) <span class="text-red-500">*</span> @endif
+    </label>
     <input
         type="{{ $type }}"
         name="{{ $name }}"

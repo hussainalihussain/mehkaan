@@ -8,7 +8,7 @@
 <form
     @if($enctype) enctype="{{ $enctype }}" @endif
     action="{{ $action }}"
-    method="{{ strtoupper($method) }}"
+    method="{{ in_array(strtoupper($method), ['PUT', 'PATCH', 'DELETE']) ? 'post' : strtolower($method) }}"
     class="{{ $class }}">
 
     @if(in_array(strtoupper($method), ['PUT', 'PATCH', 'DELETE']))

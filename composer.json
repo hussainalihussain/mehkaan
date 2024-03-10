@@ -9,10 +9,13 @@
         "guzzlehttp/guzzle": "^7.2",
         "laravel/framework": "^10.10",
         "laravel/sanctum": "^3.3",
+        "laravel/telescope": "^4.17",
         "laravel/tinker": "^2.8",
-        "spatie/laravel-permission": "^6.4"
+        "spatie/laravel-permission": "^6.4",
+        "opcodesio/log-viewer": "^3.5"
     },
     "require-dev": {
+        "barryvdh/laravel-debugbar": "^3.11",
         "brianium/paratest": "^7.4",
         "fakerphp/faker": "^1.9.1",
         "laravel/breeze": "^1.28",
