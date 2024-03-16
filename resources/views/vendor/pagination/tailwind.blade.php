@@ -16,7 +16,7 @@
             @if ($paginator->hasMorePages())
                 <a
                     href="{{ $paginator->nextPageUrl() }}"
-                    class="relative inline-flex items-center px-4 py-2 ml-3 text-sm font-medium leading-5 rounded-md focus:outline-none focus:ring transition ease-in-out duration-150 text-white bg-primary-700 hover:bg-primary-800 focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
+                    class="relative inline-flex items-center px-4 py-2 ml-3 text-sm font-medium leading-5 rounded-md focus:outline-none focus:ring transition ease-in-out duration-150 text-white bg-primary-700 hover:bg-primary-800 focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800 border border-white">
                     {!! __('pagination.next') !!}
                 </a>
             @else
@@ -73,7 +73,7 @@
                             aria-disabled="true"
                             aria-label="{{ __('pagination.previous') }}">
                             <span
-                                class="relative inline-flex items-center px-2 py-2 text-sm font-medium cursor-default rounded-l-md leading-5  dark:border-gray-600 text-white bg-primary-700 dark:bg-primary-600"
+                                class="relative inline-flex items-center px-2 py-2 text-sm font-medium cursor-default rounded-l-md leading-5  text-white bg-primary-700 dark:bg-primary-600 border border-gray-600 dark:border-gray-600"
                                 aria-hidden="true">
                                 <x-backend.icons.angle-left class="w-5 h-5" />
                             </span>
@@ -82,7 +82,7 @@
                         <a
                             href="{{ $paginator->previousPageUrl() }}"
                             rel="prev"
-                            class="relative inline-flex items-center px-2 py-2 text-sm font-medium rounded-l-md leading-5 focus:z-10 focus:outline-none transition ease-in-out duration-150 text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
+                            class="relative inline-flex items-center px-2 py-2 text-sm font-medium rounded-l-md leading-5 focus:z-10 focus:outline-none transition ease-in-out duration-150 text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800 border border-white dark:border-gray-600"
                             aria-label="{{ __('pagination.previous') }}">
                             <x-backend.icons.angle-left class="w-5 h-5" />
                         </a>
@@ -93,7 +93,7 @@
                         {{-- "Three Dots" Separator --}}
                         @if (is_string($element))
                             <span aria-disabled="true">
-                                <span class="relative inline-flex items-center px-4 py-2 -ml-px text-sm font-medium text-gray-700 bg-white cursor-default leading-5 dark:bg-gray-800 dark:border-gray-600">{{ $element }}</span>
+                                <span class="relative inline-flex items-center px-4 py-2 -ml-px text-sm font-medium text-gray-700 bg-white cursor-default leading-5 dark:bg-gray-800 border border-white dark:border-gray-600">{{ $element }}</span>
                             </span>
                         @endif
 
@@ -102,12 +102,12 @@
                             @foreach ($element as $page => $url)
                                 @if ($page == $paginator->currentPage())
                                     <span aria-current="page">
-                                        <span class="relative inline-flex items-center px-4 py-2 -ml-px text-sm font-medium cursor-default leading-5 text-primary-700 dark:text-white">{{ $page }}</span>
+                                        <span class="relative inline-flex items-center px-4 py-2 -ml-px text-sm font-medium cursor-default leading-5 text-primary-700 dark:text-white border border-white dark:border-gray-600">{{ $page }}</span>
                                     </span>
                                 @else
                                     <a
                                         href="{{ $url }}"
-                                        class="relative inline-flex items-center px-4 py-2 -ml-px text-sm font-medium leading-5 focus:z-10 focus:outline-none transition ease-in-out duration-150 text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
+                                        class="relative inline-flex items-center px-4 py-2 -ml-px text-sm font-medium leading-5 focus:z-10 focus:outline-none transition ease-in-out duration-150 text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800 border border-white dark:border-gray-600"
                                         aria-label="{{ __('Go to page :page', ['page' => $page]) }}">
                                         {{ $page }}
                                     </a>
@@ -121,7 +121,7 @@
                         <a
                             href="{{ $paginator->nextPageUrl() }}"
                             rel="next"
-                            class="relative inline-flex items-center px-2 py-2 -ml-px text-sm font-medium rounded-r-md leading-5 focus:z-10 transition ease-in-out duration-150 dark:border-gray-600 dark:active:bg-gray-700 dark:focus:border-blue-800 text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
+                            class="relative inline-flex items-center px-2 py-2 -ml-px text-sm font-medium rounded-r-md leading-5 focus:z-10 transition ease-in-out duration-150 dark:active:bg-gray-700 dark:focus:border-blue-800 text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800 border border-white dark:border-gray-600"
                             aria-label="{{ __('pagination.next') }}">
                             <x-backend.icons.angle-right class="w-5 h-5" />
                         </a>
@@ -130,7 +130,7 @@
                             aria-disabled="true"
                             aria-label="{{ __('pagination.next') }}">
                             <span
-                                class="relative inline-flex items-center px-2 py-2 -ml-px text-sm font-medium cursor-default rounded-r-md leading-5 dark:border-gray-600 text-white bg-primary-700 dark:bg-primary-600"
+                                class="relative inline-flex items-center px-2 py-2 -ml-px text-sm font-medium cursor-default rounded-r-md leading-5 text-white bg-primary-700 dark:bg-primary-600 border border-white dark:border-gray-600"
                                 aria-hidden="true">
                                 <x-backend.icons.angle-right class="w-5 h-5" />
                             </span>
