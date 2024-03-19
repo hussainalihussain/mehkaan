@@ -1,3 +1,6 @@
+@props([
+    'JS' => ''
+])
 <!doctype html>
 <html x-data="{ darkMode: localStorage.getItem('dark') === 'true'}"
 			x-init="$watch('darkMode', val => localStorage.setItem('dark', val))"
@@ -32,6 +35,8 @@
 
     <script async defer src="{{ asset('backend/src/js/buttons.js') }}"></script>
     <script src="{{ asset('backend/src/js/app.bundle.js') }}"></script>
+
+    {!! $JS ?? '' !!}
 </body>
 
 </html>

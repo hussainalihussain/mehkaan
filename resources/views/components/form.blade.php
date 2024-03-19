@@ -9,7 +9,9 @@
     @if($enctype) enctype="{{ $enctype }}" @endif
     action="{{ $action }}"
     method="{{ in_array(strtoupper($method), ['PUT', 'PATCH', 'DELETE']) ? 'post' : strtolower($method) }}"
-    class="{{ $class }}">
+    class="{{ $class }}"
+    {{ $attributes }}
+>
 
     @if(in_array(strtoupper($method), ['PUT', 'PATCH', 'DELETE']))
         @method($method)

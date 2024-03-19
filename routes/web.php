@@ -47,6 +47,7 @@ Route::get('/profile-lock-2', function () {
 
 Route::middleware(['auth', 'verified'])
     ->prefix('dashboard')
+    ->as('dashboard.')
     ->group(function () {
         require(__DIR__ . '/dashboard.php');
     }
