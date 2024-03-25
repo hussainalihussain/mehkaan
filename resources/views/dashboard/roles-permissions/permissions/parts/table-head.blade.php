@@ -12,6 +12,10 @@
             Name
         </th>
         <th scope="col"
+            class="p-4 text-xs font-medium text-left text-gray-500 uppercase dark:text-gray-400">
+            Guard Name
+        </th>
+        <th scope="col"
             class="w-1/3 p-4 text-xs font-medium text-left text-gray-500 uppercase dark:text-gray-400">
             Actions
         </th>
