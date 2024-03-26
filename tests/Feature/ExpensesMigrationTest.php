@@ -24,7 +24,7 @@ class ExpensesMigrationTest extends TestCase
 
     public function test_expenses_type_field_is_enum_or_varchar(): void
     {
-        $this->factory('type', ['enum', 'varchar']);
+        $this->factory('type', 'enum');
     }
 
     public function test_expenses_name_field_is_varchar(): void
@@ -44,7 +44,7 @@ class ExpensesMigrationTest extends TestCase
 
     public function test_expenses_payment_method_field_is_enum_or_varchar(): void
     {
-        $this->factory('payment_method', ['enum', 'varchar']);
+        $this->factory('payment_method', 'enum');
     }
 
     public function test_expenses_paid_by_name_field_is_varchar(): void

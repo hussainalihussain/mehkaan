@@ -29,7 +29,7 @@ class BatchesMigrationTest extends TestCase
 
     public function test_batches_table_has_name_field(): void
     {
-        $this->factory('name', 'varchar');
+        $this->factory('name', ['varchar', 'string']);
     }
 
     public function test_batches_table_has_date_field(): void

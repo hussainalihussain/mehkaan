@@ -18,7 +18,7 @@ class CustomersMigrationTest extends TestCase
         $this->assertTrue(Schema::hasTable(static::$table));
     }
 
-    public function test_products_table_has_id_field(): void
+    public function test_customers_table_has_id_field(): void
     {
         $this->factory('id', ['bigint', 'integer']);
         // need to check if auto incremented

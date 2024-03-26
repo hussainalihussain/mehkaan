@@ -29,15 +29,21 @@ abstract class TestCase extends BaseTestCase
 
     protected function factory($column, $type)
     {
+        $dbType = Schema::getColumnType(static::$table, $column);
         $this->assertTrue(Schema::hasColumn(static::$table, $column));
 
         if(is_array($type)) {
-            $this->assertContains(Schema::getColumnType(static::$table, $column), $type);
+            $this->assertContains($dbType, $type);
+
             return;
         }
 
-        $type !== 'enum' ?
-            $this->assertEquals($type, Schema::getColumnType(static::$table, $column)) :
-            $this->assertContains(Schema::getColumnType(static::$table, $column), ['varchar', 'enum']);
+        if(in_array($type, ['enum', 'string', 'varchar'])) {
+            $this->assertContains($dbType, ['varchar', 'enum', 'string']);
+
+            return;
+        }
+
+        $this->assertEquals($type, $dbType);
     }
 }

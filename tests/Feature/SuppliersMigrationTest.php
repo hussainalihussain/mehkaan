@@ -17,32 +17,32 @@ class SuppliersMigrationTest extends TestCase
         $this->assertTrue(Schema::hasTable(static::$table));
     }
 
-    public function test_products_table_has_id_field(): void
+    public function test_suppliers_table_has_id_field(): void
     {
         $this->factory('id', ['bigint', 'integer']);
     }
 
-    public function test_products_table_has_name_field(): void
+    public function test_suppliers_table_has_name_field(): void
     {
         $this->factory('name', 'varchar');
     }
 
-    public function test_products_table_has_address_field(): void
+    public function test_suppliers_table_has_address_field(): void
     {
         $this->factory('address', 'varchar');
     }
 
-    public function test_products_table_has_phone_field(): void
+    public function test_suppliers_table_has_phone_field(): void
     {
         $this->factory('phone', 'varchar');
     }
 
-    public function test_products_table_has_email_field(): void
+    public function test_suppliers_table_has_email_field(): void
     {
         $this->factory('email', 'varchar');
     }
 
-    public function test_products_table_has_note_field(): void
+    public function test_suppliers_table_has_note_field(): void
     {
         $this->factory('note', 'text');
     }
