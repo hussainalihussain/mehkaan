@@ -19,12 +19,14 @@
                 name="name"
                 title="Permission Name"
                 :value="$permission->name ?? ''"
+                :error="$errors->first('name')"
                 requried
             />
             <x-input
                 name="guard_name"
                 title="Guard Name"
                 :value="$permission->guard_name ?? ''"
+                :error="$errors->first('guard_name')"
                 required
             />
         </div>

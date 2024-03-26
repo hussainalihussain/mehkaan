@@ -5,9 +5,11 @@ namespace App\Http\Controllers\Backend;
 use Exception;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Spatie\Permission\Models\Permission;
+// use Spatie\Permission\Models\Permission;
+use App\Models\Permission;
 use App\Http\Requests\Backend\StorePermissionRequest;
 use App\Http\Requests\Backend\UpdatePermissionRequest;
+use Illuminate\Support\Facades\DB;
 
 class PermissionController extends Controller
 {
@@ -74,13 +76,16 @@ class PermissionController extends Controller
     public function destroy(int $id)
     {
         try {
-            $permission = Permission::findById($id);
-            $permission->delete();
+            Permission::findOrFail($id);
+            DB::table(config('permission.table_names.permissions'))
+                ->where('id', $id)
+                ->delete();
 
             return redirect()
                 ->route('dashboard.permissions.index')
                 ->withSuccess('Permission deleted successfully!');
         } catch (Exception $e) {
+            dd($e->getMessage());
             return redirect()
                 ->route('dashboard.permissions.index')
                 ->withError($e->getMessage());

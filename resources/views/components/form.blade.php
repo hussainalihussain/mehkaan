@@ -11,6 +11,7 @@
     method="{{ in_array(strtoupper($method), ['PUT', 'PATCH', 'DELETE']) ? 'post' : strtolower($method) }}"
     class="{{ $class }}"
     {{ $attributes }}
+    {{ disableValidationInTesting() }}
 >
 
     @if(in_array(strtoupper($method), ['PUT', 'PATCH', 'DELETE']))

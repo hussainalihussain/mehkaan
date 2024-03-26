@@ -1,4 +1,6 @@
-<tbody class="bg-white divide-y divide-gray-200 dark:bg-gray-800 dark:divide-gray-700">
+<tbody
+    dusk="permission-table-body"
+    class="bg-white divide-y divide-gray-200 dark:bg-gray-800 dark:divide-gray-700">
     @foreach ($permissions as $index => $permission)
         <tr class="hover:bg-gray-100 dark:hover:bg-gray-700">
             <td class="w-4 p-4">
@@ -20,6 +22,9 @@
                     Used inside: Role1, Role2, User1, User2....
                 </div>
             </td>
+            <td class="p-4 text-sm font-normal text-gray-500 whitespace-nowrap dark:text-gray-400">
+                {{ $permission->guard_name }}
+            </td>
             <td class="w-1/3 p-4 space-x-2 whitespace-nowrap">
                 <a
                     href="{{ route('dashboard.permissions.edit', $permission->id) }}"
@@ -29,11 +34,15 @@
                 </a>
                 <x-delete-form
                     :action="route('dashboard.permissions.destroy', $permission->id)"
+                    name="permission-delete-form-{{ $index }}"
+                    id="permission-delete-form-{{ $permission->id }}"
                 >
                     <button
                         type="submit"
+                        id="{{ "permission-delete-form-$permission->id" }}"
+                        dusk="delete-item-button"
                         onclick="return confirm('Are you sure?')"
-                        class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-red-700 rounded-lg hover:bg-red-800 focus:ring-4 focus:ring-red-300 dark:focus:ring-red-900"
+                        class="delete-item inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-red-700 rounded-lg hover:bg-red-800 focus:ring-4 focus:ring-red-300 dark:focus:ring-red-900"
                     >
                         <x-backend.icons.trash class="w-4 h-4 mr-2" />
                         Delete item

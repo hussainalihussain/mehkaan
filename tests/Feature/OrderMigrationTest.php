@@ -34,7 +34,7 @@ class OrderMigrationTest extends TestCase
 
     public function test_orders_table_has_status_field(): void
     {
-        $this->factory('status', ['enum', 'varchar']);
+        $this->factory('status', 'enum');
     }
 
     public function test_orders_table_has_date_field(): void
@@ -54,6 +54,6 @@ class OrderMigrationTest extends TestCase
 
     public function test_orders_table_has_currency_field(): void
     {
-        $this->factory('currency', ['varchar']);
+        $this->factory('currency', 'varchar');
     }
 }
